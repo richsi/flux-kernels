@@ -1,0 +1,93 @@
+# ==========================================
+# Python & Bytecode
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# Environments & Virtual Envs
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+*.venv
+
+# ==========================================
+# Packaging & Build Distribution
+# ==========================================
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# Triton & CUDA / GPU Caches
+# ==========================================
+# Triton JIT compilation cache
+.triton/
+__triton_cache__/
+
+# PyTorch C++ / CUDA extensions build artifacts
+.torch_extensions/
+*.pt.tar
+
+# ==========================================
+# Model Weights & HuggingFace Checkpoints
+# ==========================================
+# Ignore downloaded model weights & large binary files
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.engine
+
+# Local model checkpoint directories
+checkpoints/
+models_cache/
+hf_cache/
+
+# ==========================================
+# Profiling & Benchmark Outputs
+# ==========================================
+# Chrome trace outputs & Nsight Systems profiles
+*.json.gz
+*.nsys-rep
+*.sqlite
+traces/
+profile_results/
+*.prof
+
+# ==========================================
+# Testing & Code Quality Tools
+# ==========================================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# ==========================================
+# IDEs & System Files
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
