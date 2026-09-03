@@ -1,6 +1,6 @@
 import torch
-import torch.Tensor as Tensor
 import triton
+from torch import Tensor
 import triton.language as tl
 
 @triton.jit
@@ -31,23 +31,3 @@ def _rms_norm_fwd(
   y = x * rsqrt * weight
 
   tl.store(y_row_ptr + offs, y.to(X.dtype.element_ty), mask=mask)
-
-
-def triton_rms_norm(x: Tensor, weight: Tensor, eps: float = 1e-6) -> Tensor:
-  shape = x.shape
-  x_2d = x.view(-1, shape[-1])
-  n_rows, n_cols = x_2d.shape
-
-  y_2d = torch.empty_like(x_2d)
-
-  BLOCK_SIZE = triton.next_power_of_2(n_cols)
-  grid = (n_rows,)
-
-  _rms_norm_fwd[grid](
-    x_2d, y_2d, weight,
-    x_2d.stride(0), y_2d.stride(0),
-    N_COLS=n_cols,
-    EPS=eps,
-    BLOCK_SIZE=BLOCK_SIZE
-  )
-  return y_2d.view(*shape)
