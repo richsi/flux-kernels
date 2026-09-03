@@ -17,6 +17,7 @@ dependencies = [
     "triton",
     "matplotlib",
     "pandas",
+    "diffusers",
 ]
 
 [project.optional-dependencies]
